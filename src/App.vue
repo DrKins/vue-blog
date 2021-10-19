@@ -1,4 +1,5 @@
 <template>
+  <Landing />
   <Content />
   <Navigation />
 </template>
@@ -7,11 +8,13 @@
 import { Options, Vue } from "vue-class-component";
 import Content from "./components/Content.vue";
 import Navigation from "./components/Navigation.vue";
+import Landing from "./components/Landing.vue";
 
 @Options({
   components: {
     Content,
     Navigation,
+    Landing,
   },
 })
 export default class App extends Vue {}
@@ -36,5 +39,6 @@ export default class App extends Vue {}
   background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
 }
 </style>

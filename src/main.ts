@@ -6,9 +6,10 @@ import {
   faEye,
   faComments,
   faMinus,
+  faBell,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faHeart, faEye, faComments, faMinus);
+library.add(faHeart, faEye, faComments, faMinus, faBell);
 
 createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");
