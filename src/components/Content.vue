@@ -122,7 +122,9 @@ export default class Content extends Vue {}
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  user-select: none;
   .Box {
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -135,6 +137,14 @@ export default class Content extends Vue {}
     padding: 1rem;
     margin: 0.5rem 1.5rem;
     flex: 0 0 19%;
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+      transform: translateY(-10px);
+      transition: all ease-in-out 75ms;
+    }
+    h2 {
+      user-select: text;
+    }
     .details {
       display: flex;
       justify-content: space-evenly;
