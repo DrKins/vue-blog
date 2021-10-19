@@ -30,11 +30,15 @@ export default class Navigation extends Vue {}
       cursor: pointer;
       &:hover {
         background: rgb(110, 167, 206);
-        transition: all ease-in 350ms;
+        transition: all ease-in 250ms;
+        transform: translateX(-10px);
       }
     }
     .selected {
-      background: unset;
+      background: rgb(110, 136, 206);
+      transform: translateX(-10px);
+      font-weight: 700;
+      color: #fff;
     }
   }
 }
