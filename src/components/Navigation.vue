@@ -37,16 +37,17 @@ export default class Navigation extends Vue {}
 .Navigation-btn {
   position: relative;
   top: 1rem;
+  right: 1rem;
   background: rgb(110, 136, 206);
   font-weight: 700;
   color: #fff;
-  width: 100px;
+  width: 10rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
   &:hover {
     background: rgb(110, 167, 206);
     transition: all ease-in 250ms;
-    transform: translateX(-10px);
+    transform: translateX(1rem);
   }
 }
 .Navigation {
