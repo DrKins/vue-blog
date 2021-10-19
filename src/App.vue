@@ -34,7 +34,7 @@ export default class App extends Vue {}
   background-image: -moz-linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
   background-image: -o-linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
   background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
 }
 </style>
