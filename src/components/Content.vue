@@ -134,7 +134,7 @@ export default class Content extends Vue {}
     border-radius: 1rem;
     padding: 1rem;
     margin: 0.5rem 1.5rem;
-    flex: 0 0 15%;
+    flex: 0 0 19%;
     .details {
       display: flex;
       justify-content: space-evenly;
