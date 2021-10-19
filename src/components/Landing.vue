@@ -88,7 +88,6 @@ export default class Landing extends Vue {}
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  scroll-snap-type: y mandatory;
 }
 .Welcome_Msg {
   position: relative;

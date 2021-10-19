@@ -124,6 +124,8 @@ export default class Content extends Vue {}
   align-items: center;
   flex-wrap: wrap;
   user-select: none;
+  min-height: 100vh;
+  padding: 10rem 0;
   .Box {
     cursor: pointer;
     display: flex;
