@@ -60,7 +60,7 @@ export default class Navigation extends Vue {}
     align-items: center;
     list-style: none;
     li {
-      width: 100px;
+      width: 10rem;
       padding: 0.5rem 1rem;
       cursor: pointer;
       &:hover {
