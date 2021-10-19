@@ -119,7 +119,7 @@ export default class Content extends Vue {}
 <style scoped lang="scss">
 .ContentBox {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
