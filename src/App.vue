@@ -1,14 +1,17 @@
 <template>
   <Content />
+  <Navigation />
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import Content from "./components/Content.vue";
+import Navigation from "./components/Navigation.vue";
 
 @Options({
   components: {
     Content,
+    Navigation,
   },
 })
 export default class App extends Vue {}
@@ -32,5 +35,6 @@ export default class App extends Vue {}
   background-image: -o-linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
   background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
   height: 100vh;
+  display: flex;
 }
 </style>
