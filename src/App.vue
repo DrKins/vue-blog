@@ -32,11 +32,18 @@ export default class App extends Vue {}
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #033;
-  background-color: #8ec5fc;
-  background-image: -webkit-linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
-  background-image: -moz-linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
-  background-image: -o-linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
-  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+  background: #200122; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #6f0000,
+    #200122
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #6f0000,
+    #200122
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
