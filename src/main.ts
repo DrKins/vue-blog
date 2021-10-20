@@ -7,9 +7,11 @@ import {
   faComments,
   faMinus,
   faBell,
+  faChevronCircleDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import "animate.css";
 
-library.add(faHeart, faEye, faComments, faMinus, faBell);
+library.add(faHeart, faEye, faComments, faMinus, faBell, faChevronCircleDown);
 
 createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");

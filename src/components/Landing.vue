@@ -1,18 +1,39 @@
 <template>
   <div class="Landing_Container">
-    <div class="Welcome_Title">
+    <div
+      class="
+        Welcome_Title
+        animate__animated animate__bounceIn animate__delay-1s
+      "
+    >
       <img
+        class="animate__animated animate__jackInTheBox animate__delay-2s"
         src="https://avatarfiles.alphacoders.com/218/218198.jpg"
         alt="avatar"
       />
-      <h1>Welcome to first universal Blog Page.</h1>
+      <h1 class="animate__animated animate__bounceIn animate__delay-1s">
+        Welcome to first universal Blog Page.
+      </h1>
     </div>
-    <div class="Welcome_SubTitle">
-      <h1>You're hired! Welcome aboard blogger!</h1>
+    <div
+      class="
+        Welcome_SubTitle
+        animate__animated animate__bounceIn animate__delay-2s
+      "
+    >
+      <h1 class="animate__animated animate__bounceIn animate__delay-2s">
+        You're hired! Welcome aboard blogger!
+      </h1>
       <img
+        class="animate__animated animate__jackInTheBox animate__delay-3s"
         src="https://avatarfiles.alphacoders.com/207/thumb-1920-207191.gif"
         alt="avatar"
       />
+    </div>
+    <div
+      class="ScrollButton animate__animated animate__bounceIn animate__delay-4s"
+    >
+      <font-awesome-icon icon="chevron-circle-down" />
     </div>
   </div>
 </template>
@@ -96,6 +117,12 @@ $border: rgb(194, 194, 194);
       right: -7rem;
       top: 1rem;
     }
+  }
+  .ScrollButton {
+    margin: 20rem 0 0 0;
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
   }
 }
 </style>

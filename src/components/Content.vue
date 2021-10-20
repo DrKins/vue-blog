@@ -1,5 +1,5 @@
 <template>
-  <div class="ContentBox">
+  <div class="ContentBox" ref="Content">
     <div
       class="Box"
       v-for="(item, index) in fetch"
