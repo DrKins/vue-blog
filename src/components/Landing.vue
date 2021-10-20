@@ -18,20 +18,20 @@
     <div
       class="
         Welcome_SubTitle
-        animate__animated animate__bounceIn animate__delay-2s
+        animate__animated animate__bounceIn animate__delay-3s
       "
     >
-      <h1 class="animate__animated animate__bounceIn animate__delay-2s">
+      <h1 class="animate__animated animate__bounceIn animate__delay-3s">
         You're hired! Welcome aboard blogger!
       </h1>
       <img
-        class="animate__animated animate__jackInTheBox animate__delay-3s"
+        class="animate__animated animate__jackInTheBox animate__delay-4s"
         src="https://avatarfiles.alphacoders.com/207/thumb-1920-207191.gif"
         alt="avatar"
       />
     </div>
     <div
-      class="ScrollButton animate__animated animate__bounceIn animate__delay-4s"
+      class="ScrollButton animate__animated animate__fadeIn animate__delay-4s"
     >
       <font-awesome-icon icon="chevron-circle-down" />
     </div>
@@ -123,6 +123,11 @@ $border: rgb(194, 194, 194);
     font-size: 3rem;
     color: #fff;
     cursor: pointer;
+    transition: transform 0.3s ease-out;
+    display: inline-block;
+    &:hover {
+      transform: translateY(30px);
+    }
   }
 }
 </style>
