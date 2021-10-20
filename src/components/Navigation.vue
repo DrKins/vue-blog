@@ -2,7 +2,7 @@
   <div class="Navigation_Container">
     <div class="Navigation" v-if="NavBar">
       <ul class="Navigation_links">
-        <li class="selected" v-on:click="ShowHideMenu">Home</li>
+        <li class="selected" v-on:click="ShowHideMenu">Close</li>
         <li>About</li>
         <li>Contact</li>
         <li>Log In</li>
@@ -38,22 +38,33 @@ export default class Navigation extends Vue {}
   position: relative;
   top: 1rem;
   right: 1rem;
-  background: rgb(110, 136, 206);
   font-weight: 700;
+  background: transparent;
+  border: 0.25rem solid #fff;
   color: #fff;
   width: 10rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  transition: all ease-in-out 500ms;
   &:hover {
-    background: rgb(110, 167, 206);
-    transition: all ease-in 250ms;
-    transform: translateX(1rem);
+    background: linear-gradient(272deg, #ff4b1f, #ff9068);
+    background-size: 400% 400%;
+
+    -webkit-animation: LiveBackgroundButton 10s ease infinite;
+    -moz-animation: LiveBackgroundButton 10s ease infinite;
+    animation: LiveBackgroundButton 10s ease infinite;
+    border: 0.25rem solid #fff;
+    color: #fff;
+    transition: all ease-in-out 250ms;
+    transform: translateX(-1rem) translateY(1rem);
   }
 }
 .Navigation {
   background: #fff;
-  min-height: 100%;
   transition: all ease-in-out 250ms;
+  position: relative;
+  top: 2rem;
+  right: 2rem;
   .Navigation_links {
     display: flex;
     flex-direction: column;
@@ -65,17 +76,60 @@ export default class Navigation extends Vue {}
       padding: 0.5rem 1rem;
       cursor: pointer;
       &:hover {
-        background: rgb(110, 167, 206);
+        background: black;
+        color: #fff;
         transition: all ease-in 250ms;
-        transform: translateX(-10px);
       }
     }
     .selected {
-      background: rgb(110, 136, 206);
-      transform: translateX(-10px);
+      background: #200122; /* fallback for old browsers */
+      background: -webkit-linear-gradient(
+        to top,
+        #6f0000,
+        #200122
+      ); /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(
+        to top,
+        #6f0000,
+        #200122
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       font-weight: 700;
       color: #fff;
     }
+  }
+}
+
+@-webkit-keyframes LiveBackgroundButton {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
+@-moz-keyframes LiveBackgroundButton {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
+@keyframes LiveBackgroundButton {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
   }
 }
 </style>
