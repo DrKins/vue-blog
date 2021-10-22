@@ -1,7 +1,7 @@
 <template>
   <Landing />
-  <Content />
-  <Navigation />
+  <!-- ¸<Content /> -->
+  <!-- <Navigation /> -->
 </template>
 
 <script lang="ts">
@@ -32,17 +32,11 @@ export default class App extends Vue {}
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #033;
-  background: #200122; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #6f0000,
-    #200122
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #6f0000,
-    #200122
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: #0093e9;
+  background-image: -webkit-linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+  background-image: -moz-linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+  background-image: -o-linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
 
   min-height: 100vh;
   display: flex;
