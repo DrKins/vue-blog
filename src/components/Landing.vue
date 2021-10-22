@@ -56,6 +56,7 @@ $border: #5f9ea0;
 }
 .ScrollButton {
   -webkit-tap-highlight-color: transparent;
+  animation: scrollBtn 2s ease-in-out infinite alternate-reverse;
 }
 /*
  * Author: http://stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries/
@@ -711,6 +712,15 @@ $border: #5f9ea0;
       cursor: pointer;
       display: inline-block;
     }
+  }
+}
+@keyframes scrollBtn {
+  0% {
+    transform: translateY(0.25em);
+  }
+  100% {
+    transform: translateY(0em);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 }
 </style>
