@@ -54,6 +54,9 @@ $border: #5f9ea0;
 .Dislikes {
   cursor: pointer;
 }
+.ScrollButton {
+  -webkit-tap-highlight-color: transparent;
+}
 /*
  * Author: http://stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries/
  */
