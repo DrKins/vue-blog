@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script scoped lang="ts">
 import { Options, Vue } from "vue-class-component";
 @Options({
   data() {
@@ -47,7 +47,7 @@ export default class Navigation extends Vue {}
   cursor: pointer;
   transition: all ease-in-out 500ms;
   &:hover {
-    background: linear-gradient(272deg, #ff4b1f, #ff9068);
+    background: linear-gradient(272deg, #002d62, #6f00ff);
     background-size: 400% 400%;
 
     -webkit-animation: LiveBackgroundButton 10s ease infinite;
