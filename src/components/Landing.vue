@@ -1,9 +1,6 @@
 <template>
   <div class="Landing_Container">
     <div class="TopQuote_Container" v-for="(item, index) in fetch" :key="index">
-      <div class="QuoteHead">
-        <img src="../assets/happy.svg" alt="emoji" />
-      </div>
       <div class="TopQuote">
         <p class="Quote">"{{ item.quote }}"</p>
         <div class="Reactions">
@@ -52,59 +49,57 @@ export default class Landing extends Vue {}
 
 <style scoped lang="scss">
 $border: #5f9ea0;
+
+.Likes,
+.Dislikes {
+  cursor: pointer;
+}
 /*
  * Author: http://stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries/
  */
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width: 320px,) and (max-device-width: 480px,) {
   .Landing_Container {
-    user-select: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 2em 0 0 0;
+    padding: 2em;
     .TopQuote_Container {
-      .QuoteHead {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 1em;
-        width: 2em;
-        background: #fbfff1;
-        border-radius: 1em;
-        padding: 1em;
-        position: relative;
-        margin: 0 0 0.5em 0;
-      }
       .TopQuote {
-        margin: 0 0 4em 0;
-        width: 20em;
+        margin: 2em 0;
+        padding: 1em 1em 0 1em;
+        text-align: left;
         height: auto;
-        background: #fbfff1;
+        background: #ece9e6; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #ffffff,
+          #ece9e6
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #ffffff,
+          #ece9e6
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
         border-radius: 1em;
-        padding: 1em;
         box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
           rgba(0, 0, 0, 0.23) 0px 6px 6px;
         .Quote {
           font-style: italic;
           font-weight: 500;
           font-size: 1em;
-          margin-bottom: 1em;
         }
         .Reactions {
           display: flex;
           justify-content: space-evenly;
           color: white;
-          padding: 0 1em;
+          padding: 1em 0;
+
           .Likes {
             display: flex;
-            width: 4em;
+            width: 50%;
             padding: 1em 2em;
             justify-content: center;
             align-items: center;
             border-radius: 0.5em 0 0 0.5em;
-            border: 0.1em solid $border;
             background-image: linear-gradient(
               135deg,
               #81fbb8 10%,
@@ -118,11 +113,10 @@ $border: #5f9ea0;
           .Dislikes {
             display: flex;
             padding: 1em 2em;
-            width: 4em;
+            width: 50%;
             justify-content: center;
             align-items: center;
             border-radius: 0 0.5em 0.5em 0;
-            border: 0.1em solid $border;
             background-image: linear-gradient(
               135deg,
               #feb692 10%,
@@ -146,42 +140,574 @@ $border: #5f9ea0;
 
 /* Smartphones (landscape) ----------- */
 @media only screen and (min-width: 321px) {
-  /* Styles */
+  .Landing_Container {
+    padding: 2em;
+    .TopQuote_Container {
+      .TopQuote {
+        margin: 2em 0;
+        padding: 1em 1em 0 1em;
+        text-align: left;
+        height: auto;
+        background: #ece9e6; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #ffffff,
+          #ece9e6
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #ffffff,
+          #ece9e6
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        border-radius: 1em;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+          rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        .Quote {
+          font-style: italic;
+          font-weight: 500;
+          font-size: 1em;
+        }
+        .Reactions {
+          display: flex;
+          justify-content: space-evenly;
+          color: white;
+          padding: 1em 0;
+
+          .Likes {
+            display: flex;
+            width: 50%;
+            padding: 1em 2em;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.5em 0 0 0.5em;
+            background-image: linear-gradient(
+              135deg,
+              #81fbb8 10%,
+              #28c76f 100%
+            );
+            margin-right: 0.5em;
+            p {
+              margin-left: 0.5em;
+            }
+          }
+          .Dislikes {
+            display: flex;
+            padding: 1em 2em;
+            width: 50%;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0 0.5em 0.5em 0;
+            background-image: linear-gradient(
+              135deg,
+              #feb692 10%,
+              #ea5455 100%
+            );
+            p {
+              margin-left: 0.5em;
+            }
+          }
+        }
+      }
+    }
+    .ScrollButton {
+      font-size: 3rem;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+    }
+  }
 }
 
-/* Smartphones (portrait) ----------- */
-@media only screen and (max-width: 320px) {
-  /* Styles */
-}
+// /* Smartphones (portrait) ----------- */
+// @media only screen and (max-width: 320px) {
+//   /* Styles */
+// }
 
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-  /* Styles */
+  .Landing_Container {
+    padding: 2em;
+    .TopQuote_Container {
+      .TopQuote {
+        margin: 2em 0;
+        padding: 1em 1em 0 1em;
+        text-align: left;
+        height: auto;
+        background: #ece9e6; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #ffffff,
+          #ece9e6
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #ffffff,
+          #ece9e6
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        border-radius: 1em;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+          rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        .Quote {
+          font-style: italic;
+          font-weight: 500;
+          font-size: 1em;
+        }
+        .Reactions {
+          display: flex;
+          justify-content: space-evenly;
+          color: white;
+          padding: 1em 0;
+
+          .Likes {
+            display: flex;
+            width: 50%;
+            padding: 1em 2em;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.5em 0 0 0.5em;
+            background-image: linear-gradient(
+              135deg,
+              #81fbb8 10%,
+              #28c76f 100%
+            );
+            margin-right: 0.5em;
+            p {
+              margin-left: 0.5em;
+            }
+          }
+          .Dislikes {
+            display: flex;
+            padding: 1em 2em;
+            width: 50%;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0 0.5em 0.5em 0;
+            background-image: linear-gradient(
+              135deg,
+              #feb692 10%,
+              #ea5455 100%
+            );
+            p {
+              margin-left: 0.5em;
+            }
+          }
+        }
+      }
+    }
+    .ScrollButton {
+      font-size: 3rem;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+    }
+  }
 }
 
 /* iPads (landscape) ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  /* Styles */
+  .Landing_Container {
+    padding: 2em;
+    .TopQuote_Container {
+      .TopQuote {
+        margin: 2em 0;
+        padding: 1em 1em 0 1em;
+        text-align: left;
+        height: auto;
+        background: #ece9e6; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #ffffff,
+          #ece9e6
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #ffffff,
+          #ece9e6
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        border-radius: 1em;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+          rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        .Quote {
+          font-style: italic;
+          font-weight: 500;
+          font-size: 1em;
+        }
+        .Reactions {
+          display: flex;
+          justify-content: space-evenly;
+          color: white;
+          padding: 1em 0;
+
+          .Likes {
+            display: flex;
+            width: 50%;
+            padding: 1em 2em;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.5em 0 0 0.5em;
+            background-image: linear-gradient(
+              135deg,
+              #81fbb8 10%,
+              #28c76f 100%
+            );
+            margin-right: 0.5em;
+            p {
+              margin-left: 0.5em;
+            }
+          }
+          .Dislikes {
+            display: flex;
+            padding: 1em 2em;
+            width: 50%;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0 0.5em 0.5em 0;
+            background-image: linear-gradient(
+              135deg,
+              #feb692 10%,
+              #ea5455 100%
+            );
+            p {
+              margin-left: 0.5em;
+            }
+          }
+        }
+      }
+    }
+    .ScrollButton {
+      font-size: 3rem;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+    }
+  }
 }
 
 /* iPads (portrait) ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-  /* Styles */
+  .Landing_Container {
+    padding: 2em;
+    .TopQuote_Container {
+      .TopQuote {
+        margin: 2em 0;
+        padding: 1em 1em 0 1em;
+        text-align: left;
+        height: auto;
+        background: #ece9e6; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #ffffff,
+          #ece9e6
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #ffffff,
+          #ece9e6
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        border-radius: 1em;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+          rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        .Quote {
+          font-style: italic;
+          font-weight: 500;
+          font-size: 1em;
+        }
+        .Reactions {
+          display: flex;
+          justify-content: space-evenly;
+          color: white;
+          padding: 1em 0;
+
+          .Likes {
+            display: flex;
+            width: 50%;
+            padding: 1em 2em;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.5em 0 0 0.5em;
+            background-image: linear-gradient(
+              135deg,
+              #81fbb8 10%,
+              #28c76f 100%
+            );
+            margin-right: 0.5em;
+            p {
+              margin-left: 0.5em;
+            }
+          }
+          .Dislikes {
+            display: flex;
+            padding: 1em 2em;
+            width: 50%;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0 0.5em 0.5em 0;
+            background-image: linear-gradient(
+              135deg,
+              #feb692 10%,
+              #ea5455 100%
+            );
+            p {
+              margin-left: 0.5em;
+            }
+          }
+        }
+      }
+    }
+    .ScrollButton {
+      font-size: 3rem;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+    }
+  }
 }
 
 /* Desktops and laptops ----------- */
 @media only screen and (min-width: 1224px) {
-  /* Styles */
+  .Landing_Container {
+    padding: 2em 40%;
+    .TopQuote_Container {
+      .TopQuote {
+        margin: 2em 0;
+        padding: 1em 1em 0 1em;
+        text-align: left;
+        height: auto;
+        background: #ece9e6; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #ffffff,
+          #ece9e6
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #ffffff,
+          #ece9e6
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        border-radius: 1em;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+          rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        .Quote {
+          font-style: italic;
+          font-weight: 500;
+          font-size: 1em;
+        }
+        .Reactions {
+          display: flex;
+          justify-content: space-evenly;
+          color: white;
+          padding: 1em 0;
+
+          .Likes {
+            display: flex;
+            width: 50%;
+            padding: 1em 2em;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.5em 0 0 0.5em;
+            background-image: linear-gradient(
+              135deg,
+              #81fbb8 10%,
+              #28c76f 100%
+            );
+            margin-right: 0.5em;
+            p {
+              margin-left: 0.5em;
+            }
+          }
+          .Dislikes {
+            display: flex;
+            padding: 1em 2em;
+            width: 50%;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0 0.5em 0.5em 0;
+            background-image: linear-gradient(
+              135deg,
+              #feb692 10%,
+              #ea5455 100%
+            );
+            p {
+              margin-left: 0.5em;
+            }
+          }
+        }
+      }
+    }
+    .ScrollButton {
+      font-size: 3rem;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+    }
+  }
 }
 
 /* Large screens ----------- */
 @media only screen and (min-width: 1824px) {
-  /* Styles */
+  .Landing_Container {
+    padding: 2em 40%;
+    .TopQuote_Container {
+      .TopQuote {
+        margin: 2em 0;
+        padding: 1em 1em 0 1em;
+        text-align: left;
+        height: auto;
+        background: #ece9e6; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #ffffff,
+          #ece9e6
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #ffffff,
+          #ece9e6
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        border-radius: 1em;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+          rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        .Quote {
+          font-style: italic;
+          font-weight: 500;
+          font-size: 1em;
+        }
+        .Reactions {
+          display: flex;
+          justify-content: space-evenly;
+          color: white;
+          padding: 1em 0;
+
+          .Likes {
+            display: flex;
+            width: 50%;
+            padding: 1em 2em;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.5em 0 0 0.5em;
+            background-image: linear-gradient(
+              135deg,
+              #81fbb8 10%,
+              #28c76f 100%
+            );
+            margin-right: 0.5em;
+            p {
+              margin-left: 0.5em;
+            }
+          }
+          .Dislikes {
+            display: flex;
+            padding: 1em 2em;
+            width: 50%;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0 0.5em 0.5em 0;
+            background-image: linear-gradient(
+              135deg,
+              #feb692 10%,
+              #ea5455 100%
+            );
+            p {
+              margin-left: 0.5em;
+            }
+          }
+        }
+      }
+    }
+    .ScrollButton {
+      font-size: 3rem;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+    }
+  }
 }
 
 /* iPhone 4 ----------- */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
   only screen and (min-device-pixel-ratio: 1.5) {
-  /* Styles */
+  .Landing_Container {
+    padding: 2em;
+    .TopQuote_Container {
+      .TopQuote {
+        margin: 2em 0;
+        padding: 1em 1em 0 1em;
+        text-align: left;
+        height: auto;
+        background: #ece9e6; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #ffffff,
+          #ece9e6
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #ffffff,
+          #ece9e6
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        border-radius: 1em;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+          rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        .Quote {
+          font-style: italic;
+          font-weight: 500;
+          font-size: 1em;
+        }
+        .Reactions {
+          display: flex;
+          justify-content: space-evenly;
+          color: white;
+          padding: 1em 0;
+
+          .Likes {
+            display: flex;
+            width: 50%;
+            padding: 1em 2em;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.5em 0 0 0.5em;
+            background-image: linear-gradient(
+              135deg,
+              #81fbb8 10%,
+              #28c76f 100%
+            );
+            margin-right: 0.5em;
+            p {
+              margin-left: 0.5em;
+            }
+          }
+          .Dislikes {
+            display: flex;
+            padding: 1em 2em;
+            width: 50%;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0 0.5em 0.5em 0;
+            background-image: linear-gradient(
+              135deg,
+              #feb692 10%,
+              #ea5455 100%
+            );
+            p {
+              margin-left: 0.5em;
+            }
+          }
+        }
+      }
+    }
+    .ScrollButton {
+      font-size: 3rem;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+    }
+  }
 }
 </style>
