@@ -1,14 +1,13 @@
 <template>
   <div class="Navigation_Container">
-    <div class="Navigation" v-if="NavBar">
-      <ul class="Navigation_links">
-        <li class="selected" v-on:click="ShowHideMenu">Close</li>
-        <li>About</li>
-        <li>Contact</li>
-        <li>Log In</li>
-      </ul>
+    <div class="logo"></div>
+    <div class="searchBar">
+      <div>
+        <input type="text" placeholder="Search item" id="search" />
+        <font-awesome-icon icon="search" />
+      </div>
     </div>
-    <div class="Navigation-btn" v-else v-on:click="ShowHideMenu">Menu</div>
+    <div class="menuBtn">Menu</div>
   </div>
 </template>
 
@@ -28,108 +27,414 @@ export default class Navigation extends Vue {}
 </script>
 
 <style scoped lang="scss">
-.Navigation_Container {
-  position: fixed;
-  right: 0;
-  height: 100%;
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
+/*
+ * Author: http://stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries/
+ */
 
-.Navigation-btn {
-  position: relative;
-  top: 1rem;
-  right: 1rem;
-  font-weight: 700;
-  background: transparent;
-  border: 0.25rem solid #fff;
-  color: #fff;
-  width: 10rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  transition: all ease-in-out 500ms;
-  &:hover {
-    background: linear-gradient(272deg, #002d62, #6f00ff);
-    background-size: 400% 400%;
-
-    -webkit-animation: LiveBackgroundButton 10s ease infinite;
-    -moz-animation: LiveBackgroundButton 10s ease infinite;
-    animation: LiveBackgroundButton 10s ease infinite;
-    border: 0.25rem solid #fff;
-    color: #fff;
-    transition: all ease-in-out 250ms;
-    transform: translateX(-1rem) translateY(1rem);
-  }
-}
-.Navigation {
-  background: #fff;
-  transition: all ease-in-out 250ms;
-  position: relative;
-  top: 2rem;
-  right: 2rem;
-  .Navigation_links {
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .Navigation_Container {
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    list-style: none;
-    li {
-      width: 10rem;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      &:hover {
-        background: black;
-        color: #fff;
-        transition: all ease-in 250ms;
+    height: 4em;
+    background: white;
+    padding: 0 1em;
+    .searchBar {
+      div:first-child {
+        display: flex;
+        border: 0.1em solid black;
+        border-radius: 2em;
+        background: transparent;
+        color: black;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5em;
+        &:hover {
+          #search {
+            opacity: 1;
+            width: 10em;
+            padding: 0 0.25em;
+            transition: width 2s ease-in-out;
+          }
+        }
+        input {
+          opacity: 0;
+          border: none;
+          width: 0;
+          &:focus {
+            outline: none;
+            background: transparent;
+          }
+        }
       }
     }
-    .selected {
-      background: #200122; /* fallback for old browsers */
-      background: -webkit-linear-gradient(
-        to top,
-        #6f0000,
-        #200122
-      ); /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(
-        to top,
-        #6f0000,
-        #200122
-      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    .menuBtn {
       font-weight: 700;
-      color: #fff;
     }
   }
 }
 
-@-webkit-keyframes LiveBackgroundButton {
-  0% {
-    background-position: 0% 51%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 51%;
+/* Smartphones (landscape) ----------- */
+.menuBtn {
+  cursor: pointer;
+}
+@media only screen and (min-width: 321px) {
+  .Navigation_Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4em;
+    background: white;
+    padding: 0 1em;
+    .searchBar {
+      div:first-child {
+        display: flex;
+        border: 0.1em solid black;
+        border-radius: 2em;
+        background: transparent;
+        color: black;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5em;
+        &:hover {
+          #search {
+            opacity: 1;
+            width: 10em;
+            padding: 0 0.25em;
+            transition: width 2s ease-in-out;
+          }
+        }
+        input {
+          opacity: 0;
+          border: none;
+          width: 0;
+          &:focus {
+            outline: none;
+            background: transparent;
+          }
+        }
+      }
+    }
+    .menuBtn {
+      font-weight: 700;
+    }
   }
 }
-@-moz-keyframes LiveBackgroundButton {
-  0% {
-    background-position: 0% 51%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 51%;
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 320px) {
+  .Navigation_Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4em;
+    background: white;
+    padding: 0 1em;
+    .searchBar {
+      div:first-child {
+        display: flex;
+        border: 0.1em solid black;
+        border-radius: 2em;
+        background: transparent;
+        color: black;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5em;
+        &:hover {
+          #search {
+            opacity: 1;
+            width: 10em;
+            padding: 0 0.25em;
+            transition: width 2s ease-in-out;
+          }
+        }
+        input {
+          opacity: 0;
+          border: none;
+          width: 0;
+          &:focus {
+            outline: none;
+            background: transparent;
+          }
+        }
+      }
+    }
+    .menuBtn {
+      font-weight: 700;
+    }
   }
 }
-@keyframes LiveBackgroundButton {
-  0% {
-    background-position: 0% 51%;
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .Navigation_Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4em;
+    background: white;
+    padding: 0 1em;
+    .searchBar {
+      div:first-child {
+        display: flex;
+        border: 0.1em solid black;
+        border-radius: 2em;
+        background: transparent;
+        color: black;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5em;
+        &:hover {
+          #search {
+            opacity: 1;
+            width: 10em;
+            padding: 0 0.25em;
+            transition: width 2s ease-in-out;
+          }
+        }
+        input {
+          opacity: 0;
+          border: none;
+          width: 0;
+          &:focus {
+            outline: none;
+            background: transparent;
+          }
+        }
+      }
+    }
+    .menuBtn {
+      font-weight: 700;
+    }
   }
-  50% {
-    background-position: 100% 50%;
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .Navigation_Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4em;
+    background: white;
+    padding: 0 1em;
+    .searchBar {
+      div:first-child {
+        display: flex;
+        border: 0.1em solid black;
+        border-radius: 2em;
+        background: transparent;
+        color: black;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5em;
+        &:hover {
+          #search {
+            opacity: 1;
+            width: 10em;
+            padding: 0 0.25em;
+            transition: width 2s ease-in-out;
+          }
+        }
+        input {
+          opacity: 0;
+          border: none;
+          width: 0;
+          &:focus {
+            outline: none;
+            background: transparent;
+          }
+        }
+      }
+    }
+    .menuBtn {
+      font-weight: 700;
+    }
   }
-  100% {
-    background-position: 0% 51%;
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .Navigation_Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4em;
+    background: white;
+    padding: 0 1em;
+    .searchBar {
+      div:first-child {
+        display: flex;
+        border: 0.1em solid black;
+        border-radius: 2em;
+        background: transparent;
+        color: black;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5em;
+        &:hover {
+          #search {
+            opacity: 1;
+            width: 10em;
+            padding: 0 0.25em;
+            transition: width 2s ease-in-out;
+          }
+        }
+        input {
+          opacity: 0;
+          border: none;
+          width: 0;
+          &:focus {
+            outline: none;
+            background: transparent;
+          }
+        }
+      }
+    }
+    .menuBtn {
+      font-weight: 700;
+    }
+  }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  .Navigation_Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4em;
+    background: white;
+    padding: 0 1em;
+    .searchBar {
+      div:first-child {
+        display: flex;
+        border: 0.1em solid black;
+        border-radius: 2em;
+        background: transparent;
+        color: black;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5em;
+        &:hover {
+          #search {
+            opacity: 1;
+            width: 10em;
+            padding: 0 0.25em;
+            transition: width 2s ease-in-out;
+          }
+        }
+        input {
+          opacity: 0;
+          border: none;
+          width: 0;
+          &:focus {
+            outline: none;
+            background: transparent;
+          }
+        }
+      }
+    }
+    .menuBtn {
+      font-weight: 700;
+    }
+  }
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+  .Navigation_Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4em;
+    background: white;
+    padding: 0 1em;
+    .searchBar {
+      div:first-child {
+        display: flex;
+        border: 0.1em solid black;
+        border-radius: 2em;
+        background: transparent;
+        color: black;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5em;
+        &:hover {
+          #search {
+            opacity: 1;
+            width: 10em;
+            padding: 0 0.25em;
+            transition: width 2s ease-in-out;
+          }
+        }
+        input {
+          opacity: 0;
+          border: none;
+          width: 0;
+          &:focus {
+            outline: none;
+            background: transparent;
+          }
+        }
+      }
+    }
+    .menuBtn {
+      font-weight: 700;
+    }
+  }
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (min-device-pixel-ratio: 1.5) {
+  .Navigation_Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4em;
+    background: white;
+    padding: 0 1em;
+    .searchBar {
+      div:first-child {
+        display: flex;
+        border: 0.1em solid black;
+        border-radius: 2em;
+        background: transparent;
+        color: black;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5em;
+        &:hover {
+          #search {
+            opacity: 1;
+            width: 10em;
+            padding: 0 0.25em;
+            transition: width 2s ease-in-out;
+          }
+        }
+        input {
+          opacity: 0;
+          border: none;
+          width: 0;
+          &:focus {
+            outline: none;
+            background: transparent;
+          }
+        }
+      }
+    }
+    .menuBtn {
+      font-weight: 700;
+    }
   }
 }
 </style>

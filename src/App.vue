@@ -1,7 +1,7 @@
 <template>
+  <Navigation />
   <Landing />
   <!-- ¸<Content /> -->
-  <!-- <Navigation /> -->
 </template>
 
 <script lang="ts">
