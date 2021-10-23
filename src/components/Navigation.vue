@@ -9,7 +9,12 @@
         <font-awesome-icon icon="search" id="searchIcon" />
       </div>
     </div>
-    <div class="menuBtn">Menu</div>
+    <div class="menuBtn" v-on:click="ShowHideMenu">Menu</div>
+    <div class="dropDown" v-if="this.NavBar">
+      <ul>
+        <li>Dodaj citat</li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -80,6 +85,20 @@ input:-webkit-autofill:active {
   .menuBtn {
     font-weight: 700;
     cursor: pointer;
+  }
+  .dropDown {
+    position: absolute;
+    right: 0;
+    top: 4em;
+    ul {
+      list-style: none;
+      li {
+        border-top: 1px solid black;
+        background: #fff;
+        padding: 1em;
+        cursor: pointer;
+      }
+    }
   }
 }
 /*
