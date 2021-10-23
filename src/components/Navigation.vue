@@ -1,10 +1,12 @@
 <template>
   <div class="Navigation_Container">
-    <div class="logo"></div>
+    <div class="logo">
+      <img src="../assets/logo.png" alt="logo" />
+    </div>
     <div class="searchBar">
       <div>
         <input type="text" placeholder="Search item" id="search" />
-        <font-awesome-icon icon="search" />
+        <font-awesome-icon icon="search" id="searchIcon" />
       </div>
     </div>
     <div class="menuBtn">Menu</div>
@@ -43,6 +45,15 @@ input:-webkit-autofill:active {
   height: 4em;
   background: white;
   padding: 0 1em;
+  .logo {
+    display: flex;
+    align-items: center;
+    img {
+      width: 2em;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+  }
   .searchBar {
     div:first-child {
       display: flex;
@@ -53,7 +64,9 @@ input:-webkit-autofill:active {
       justify-content: center;
       align-items: center;
       padding: 0.5em;
-
+      #searchIcon {
+        cursor: pointer;
+      }
       input {
         padding: 0 0.25em;
         border: none;
@@ -66,6 +79,7 @@ input:-webkit-autofill:active {
   }
   .menuBtn {
     font-weight: 700;
+    cursor: pointer;
   }
 }
 /*
