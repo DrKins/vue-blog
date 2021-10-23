@@ -14,6 +14,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import "animate.css";
+import store from "./store";
 
 library.add(
   faHeart,
@@ -27,4 +28,7 @@ library.add(
   faSearch
 );
 
-createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");
+createApp(App)
+  .use(store)
+  .component("font-awesome-icon", FontAwesomeIcon)
+  .mount("#app");
