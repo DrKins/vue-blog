@@ -85,6 +85,7 @@ input:-webkit-autofill:active {
   .menuBtn {
     font-weight: 700;
     cursor: pointer;
+    user-select: none;
   }
   .dropDown {
     position: absolute;
@@ -97,6 +98,9 @@ input:-webkit-autofill:active {
         background: #fff;
         padding: 1em;
         cursor: pointer;
+        &:hover {
+          background: rgb(238, 238, 238);
+        }
       }
     }
   }
