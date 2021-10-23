@@ -10,6 +10,7 @@ import {
   faHeartBroken,
   faChevronCircleDown,
   faSearch,
+  faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import "animate.css";
@@ -20,6 +21,7 @@ library.add(
   faComments,
   faMinus,
   faBell,
+  faSpinner,
   faChevronCircleDown,
   faHeartBroken,
   faSearch
