@@ -1,37 +1,35 @@
 <template>
   <div class="Landing_Container">
     <Card />
-    <div class="ScrollButton animate__animated animate__fadeIn">
+    <!-- <div class="ScrollButton animate__animated animate__fadeIn">
       <font-awesome-icon icon="chevron-circle-down" />
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script lang="ts">
+import { randomGenerate } from "@/scripts/randomGenerate";
 import { Options, Vue } from "vue-class-component";
+import { mapActions, mapGetters } from "vuex";
 import Card from "./Card.vue";
 @Options({
   components: {
     Card,
   },
-  data() {
-    return {
-      fetch: [
-        {
-          titleName: "Example title",
-          likes: 12,
-          dislikes: 2,
-          quote: "Commodo amet in deserunt nostrud Lorem duis eiusmod.",
-        },
-        {
-          titleName: "Example title",
-          likes: 12,
-          dislikes: 2,
-          quote:
-            "Incididunt enim nisi dolor Lorem. Velit aliqua enim ex consectetur sit Lorem fugiat et. Dolore quis pariatur exercitation pariatur dolore qui tempor sit et. Officia exercitation ea aute ea deserunt voluptate duis incididunt laboris nulla Lorem. Cillum est velit nostrud aute nisi ex exercitation et id aliquip incididunt anim labore non. Tempor laboris consequat velit velit officia commodo. Mollit et adipisicing cupidatat ad nulla nostrud ex consequat sunt mollit.",
-        },
-      ],
-    };
+  mounted() {
+    this.GenerateC();
+  },
+  computed: {
+    ...mapGetters(["GetAPI"]),
+  },
+  methods: {
+    ...mapActions(["generateCard"]),
+    //Generate 8 cards from api.
+    async GenerateC() {
+      for (let index = 0; index < 8; index++) {
+        this.generateCard(await randomGenerate.generateItem());
+      }
+    },
   },
 })
 export default class Landing extends Vue {}
@@ -48,118 +46,97 @@ $border: #5f9ea0;
   -webkit-tap-highlight-color: transparent;
   animation: scrollBtn 2s ease-in-out infinite alternate-reverse;
 }
+.Landing_Container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0.25em;
+  grid-row-gap: 0em;
+  .ScrollButton {
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+  }
+}
+
 /*
- * Author: http://stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries/
- */
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width: 320px,) and (max-device-width: 480px,) {
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
   .Landing_Container {
-    padding: 2em;
-    .ScrollButton {
-      font-size: 3rem;
-      color: #fff;
-      cursor: pointer;
-      display: inline-block;
-    }
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 0.25em 30%;
   }
 }
 
-/* Smartphones (landscape) ----------- */
-@media only screen and (min-width: 321px) {
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
   .Landing_Container {
-    padding: 2em;
-    .ScrollButton {
-      font-size: 3rem;
-      color: #fff;
-      cursor: pointer;
-      display: inline-block;
-    }
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 0.25em 30%;
   }
 }
 
-// /* Smartphones (portrait) ----------- */
-// @media only screen and (max-width: 320px) {
-//   /* Styles */
-// }
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
 
-/* iPads (portrait and landscape) ----------- */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
   .Landing_Container {
-    padding: 2em;
-    .ScrollButton {
-      font-size: 3rem;
-      color: #fff;
-      cursor: pointer;
-      display: inline-block;
-    }
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 2em 30%;
   }
 }
 
-/* iPads (landscape) ----------- */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+/*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .Landing_Container {
-    padding: 2em;
-    .ScrollButton {
-      font-size: 3rem;
-      color: #fff;
-      cursor: pointer;
-      display: inline-block;
-    }
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 2em 30%;
   }
 }
 
-/* iPads (portrait) ----------- */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
   .Landing_Container {
-    padding: 2em;
-    .ScrollButton {
-      font-size: 3rem;
-      color: #fff;
-      cursor: pointer;
-      display: inline-block;
-    }
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 1fr);
   }
 }
 
-/* Desktops and laptops ----------- */
-@media only screen and (min-width: 1224px) {
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
   .Landing_Container {
-    padding: 2em 40%;
-    .ScrollButton {
-      font-size: 3rem;
-      color: #fff;
-      cursor: pointer;
-      display: inline-block;
-    }
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 1fr);
   }
 }
 
-/* Large screens ----------- */
-@media only screen and (min-width: 1824px) {
-  .Landing_Container {
-    padding: 2em 40%;
-    .ScrollButton {
-      font-size: 3rem;
-      color: #fff;
-      cursor: pointer;
-      display: inline-block;
-    }
-  }
-}
-
-/* iPhone 4 ----------- */
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-  only screen and (min-device-pixel-ratio: 1.5) {
-  .Landing_Container {
-    padding: 2em;
-    .ScrollButton {
-      font-size: 3rem;
-      color: #fff;
-      cursor: pointer;
-      display: inline-block;
-    }
-  }
-}
+/* CSS */
 @keyframes scrollBtn {
   0% {
     transform: translateY(0.25em);
