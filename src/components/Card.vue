@@ -33,25 +33,31 @@ import "animate.css";
   },
   data() {
     return {
-      disableOptions: false as boolean,
+      //array of all liked or disliked items by id
+      reacted: [] as number[],
     };
   },
   methods: {
     ...mapMutations(["MutateLike", "MutateDislike"]),
     callAction(val: boolean, id: number, prop: number) {
-      console.log(val, id, prop);
-      if (val) {
-        this.MutateLike({
-          id: id,
-          likes: prop,
-        });
-        this.disableOptions = true;
-      } else {
-        this.MutateDislike({
-          id: id,
-          dislikes: prop,
-        });
-        this.disableOptions = true;
+      //checks if id is already liked.
+      if (this.reacted.includes(id)) {
+        return;
+      } //continues
+      else {
+        if (val) {
+          this.MutateLike({
+            id: id,
+            likes: prop,
+          });
+          this.reacted.push(id);
+        } else {
+          this.MutateDislike({
+            id: id,
+            dislikes: prop,
+          });
+          this.reacted.push(id);
+        }
       }
     },
   },
@@ -60,9 +66,6 @@ export default class Card extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-.disabled {
-  background-image: linear-gradient(135deg, #adadad 10%, #3a3a3a 100%);
-}
 .TopQuote_Container {
   .TopQuote {
     display: flex;
