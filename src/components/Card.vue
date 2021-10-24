@@ -3,11 +3,14 @@
     <div class="TopQuote">
       <p class="Quote">"{{ item.text }}"</p>
       <div class="Reactions">
-        <div class="Likes">
+        <div class="Likes" v-on:click="callAction(true, item.id, item.likes)">
           <font-awesome-icon icon="heart" />
           <p>{{ item.likes }}</p>
         </div>
-        <div class="Dislikes">
+        <div
+          class="Dislikes"
+          v-on:click="callAction(false, item.id, item.dislikes)"
+        >
           <font-awesome-icon icon="heart-broken" />
           <p>{{ item.dislikes }}</p>
         </div>
@@ -18,10 +21,27 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import { mapGetters } from "vuex";
+import { mapMutations, mapGetters } from "vuex";
 @Options({
   computed: {
     ...mapGetters(["GetAPI"]),
+  },
+  methods: {
+    ...mapMutations(["MutateLike", "MutateDislike"]),
+    callAction(val: boolean, id: number, prop: number) {
+      console.log(val, id, prop);
+      if (val) {
+        this.MutateLike({
+          id: id,
+          likes: prop,
+        });
+      } else {
+        this.MutateDislike({
+          id: id,
+          dislikes: prop,
+        });
+      }
+    },
   },
 })
 export default class Card extends Vue {}
@@ -61,7 +81,7 @@ export default class Card extends Vue {}
       justify-content: space-evenly;
       color: white;
       padding: 1em 0;
-
+      cursor: pointer;
       .Likes {
         display: flex;
         width: 50%;
@@ -71,6 +91,9 @@ export default class Card extends Vue {}
         border-radius: 0.5em 0 0 0.5em;
         background-image: linear-gradient(135deg, #81fbb8 10%, #28c76f 100%);
         margin-right: 0.5em;
+        &:hover {
+          background-image: linear-gradient(135deg, #81fbb8 10%, #1f9e58 100%);
+        }
         p {
           margin-left: 0.5em;
         }
@@ -83,6 +106,9 @@ export default class Card extends Vue {}
         align-items: center;
         border-radius: 0 0.5em 0.5em 0;
         background-image: linear-gradient(135deg, #feb692 10%, #ea5455 100%);
+        &:hover {
+          background-image: linear-gradient(135deg, #feb692 10%, #e63535 100%);
+        }
         p {
           margin-left: 0.5em;
         }
