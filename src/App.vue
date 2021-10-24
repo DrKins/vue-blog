@@ -1,18 +1,15 @@
 <template>
   <Navigation />
   <Landing />
-  <!-- ¸<Content /> -->
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import Content from "./components/Content.vue";
 import Navigation from "./components/Navigation.vue";
 import Landing from "./components/Landing.vue";
 
 @Options({
   components: {
-    Content,
     Navigation,
     Landing,
   },
