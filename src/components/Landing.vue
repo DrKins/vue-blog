@@ -113,7 +113,7 @@ $border: #5f9ea0;
   .Landing_Container {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    padding: 2em 30%;
+    padding: 2em 10%;
   }
 }
 
@@ -126,7 +126,7 @@ $border: #5f9ea0;
   .Landing_Container {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    padding: 2em 30%;
+    padding: 2em 10%;
   }
 }
 
@@ -139,6 +139,7 @@ $border: #5f9ea0;
   .Landing_Container {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(2, 1fr);
+    padding: 2em 10%;
   }
 }
 
@@ -151,6 +152,7 @@ $border: #5f9ea0;
   .Landing_Container {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(2, 1fr);
+    padding: 2em 10%;
   }
 }
 
