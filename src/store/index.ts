@@ -16,6 +16,14 @@ export default createStore<StateInterface>({
     MutateNewCard(state, payload) {
       state.APIData.push(payload);
     },
+    //mutate new like to card
+    MutateLike(state, payload) {
+      state.APIData[payload.id].likes = payload.likes;
+    },
+    //mutate new dislike
+    MutateDislike(state, payload) {
+      state.APIData[payload.id].dislikes = payload.dislikes;
+    },
   },
   actions: {
     //creating async call for mutation
