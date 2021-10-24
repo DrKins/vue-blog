@@ -1,5 +1,9 @@
 <template>
-  <div class="TopQuote_Container" v-for="(item, index) in GetAPI" :key="index">
+  <div
+    class="TopQuote_Container animate__animated animate__flipInX"
+    v-for="(item, index) in GetAPI"
+    :key="index"
+  >
     <div class="TopQuote">
       <p class="Quote">"{{ item.text }}"</p>
       <div class="Reactions">
@@ -22,9 +26,15 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import { mapMutations, mapGetters } from "vuex";
+import "animate.css";
 @Options({
   computed: {
     ...mapGetters(["GetAPI"]),
+  },
+  data() {
+    return {
+      disableOptions: false as boolean,
+    };
   },
   methods: {
     ...mapMutations(["MutateLike", "MutateDislike"]),
@@ -35,11 +45,13 @@ import { mapMutations, mapGetters } from "vuex";
           id: id,
           likes: prop,
         });
+        this.disableOptions = true;
       } else {
         this.MutateDislike({
           id: id,
           dislikes: prop,
         });
+        this.disableOptions = true;
       }
     },
   },
@@ -48,6 +60,9 @@ export default class Card extends Vue {}
 </script>
 
 <style lang="scss" scoped>
+.disabled {
+  background-image: linear-gradient(135deg, #adadad 10%, #3a3a3a 100%);
+}
 .TopQuote_Container {
   .TopQuote {
     display: flex;
