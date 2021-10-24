@@ -10,10 +10,16 @@
         <font-awesome-icon icon="search" id="searchIcon" />
       </div>
     </div> -->
-    <div class="menuBtn" v-on:click="ShowHideMenu">Menu</div>
+    <div
+      class="menuBtn"
+      v-on:click="ShowHideMenu"
+      v-bind:class="{ clicked: NavBar }"
+    >
+      Menu
+    </div>
     <div class="dropDown" v-if="this.NavBar">
       <ul>
-        <li>Dodaj citat</li>
+        <li v-on:click="reloadPage">Refresh Page</li>
       </ul>
     </div>
   </div>
@@ -28,6 +34,9 @@ import { Options, Vue } from "vue-class-component";
   methods: {
     ShowHideMenu() {
       this.NavBar = !this.NavBar;
+    },
+    reloadPage() {
+      window.location.reload();
     },
   },
 })
@@ -83,6 +92,13 @@ input:-webkit-autofill:active {
   //     }
   //   }
   // }
+  .clicked {
+    background: linear-gradient(to right, #78ffd6, #007991);
+    padding: 1em 0 1em 6.5em;
+    border-radius: 0.25em;
+    transition: all ease-in 350ms;
+    color: #fff;
+  }
   .menuBtn {
     font-weight: 700;
     cursor: pointer;
@@ -90,17 +106,18 @@ input:-webkit-autofill:active {
   }
   .dropDown {
     position: absolute;
-    right: 0;
-    top: 4em;
+    right: 0.5em;
+    top: 4.5em;
     ul {
       list-style: none;
       li {
-        border-top: 1px solid black;
+        border-radius: 0.4em;
         background: #fff;
         padding: 1em;
         cursor: pointer;
         &:hover {
-          background: rgb(238, 238, 238);
+          background: linear-gradient(to right, #78ffd6, #fff);
+          border-radius: 0.25em;
         }
       }
     }
