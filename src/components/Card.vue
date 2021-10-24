@@ -30,10 +30,12 @@ export default class Card extends Vue {}
 <style lang="scss" scoped>
 .TopQuote_Container {
   .TopQuote {
-    margin: 2em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 1em 1em 0 1em;
+    min-height: 10em;
     text-align: left;
-    height: auto;
     background: #ece9e6; /* fallback for old browsers */
     background: -webkit-linear-gradient(
       to right,
