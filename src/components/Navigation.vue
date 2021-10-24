@@ -2,13 +2,14 @@
   <div class="Navigation_Container">
     <div class="logo">
       <img src="../assets/logo.png" alt="logo" />
+      <h3>Vue-blog</h3>
     </div>
-    <div class="searchBar">
+    <!-- <div class="searchBar">
       <div>
         <input type="text" placeholder="Search item" id="search" />
         <font-awesome-icon icon="search" id="searchIcon" />
       </div>
-    </div>
+    </div> -->
     <div class="menuBtn" v-on:click="ShowHideMenu">Menu</div>
     <div class="dropDown" v-if="this.NavBar">
       <ul>
@@ -59,29 +60,29 @@ input:-webkit-autofill:active {
       -webkit-user-drag: none;
     }
   }
-  .searchBar {
-    div:first-child {
-      display: flex;
-      border: 0.1em solid black;
-      border-radius: 2em;
-      background: transparent;
-      color: black;
-      justify-content: center;
-      align-items: center;
-      padding: 0.5em;
-      #searchIcon {
-        cursor: pointer;
-      }
-      input {
-        padding: 0 0.25em;
-        border: none;
-        &:focus {
-          outline: none;
-          background: transparent;
-        }
-      }
-    }
-  }
+  // .searchBar {
+  //   div:first-child {
+  //     display: flex;
+  //     border: 0.1em solid black;
+  //     border-radius: 2em;
+  //     background: transparent;
+  //     color: black;
+  //     justify-content: center;
+  //     align-items: center;
+  //     padding: 0.5em;
+  //     #searchIcon {
+  //       cursor: pointer;
+  //     }
+  //     input {
+  //       padding: 0 0.25em;
+  //       border: none;
+  //       &:focus {
+  //         outline: none;
+  //         background: transparent;
+  //       }
+  //     }
+  //   }
+  // }
   .menuBtn {
     font-weight: 700;
     cursor: pointer;
