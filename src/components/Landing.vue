@@ -1,9 +1,6 @@
 <template>
   <div class="Landing_Container">
     <Card />
-    <!-- <div class="ScrollButton animate__animated animate__fadeIn">
-      <font-awesome-icon icon="chevron-circle-down" />
-    </div> -->
   </div>
 </template>
 
@@ -17,7 +14,6 @@ import Card from "./Card.vue";
     Card,
   },
   mounted() {
-    this.GenerateC(8);
     this.scroll();
   },
   computed: {
@@ -33,6 +29,10 @@ import Card from "./Card.vue";
     },
     //check if is scrolled to the bottom?
     scroll() {
+      var hasVScroll = document.body.scrollHeight > document.body.clientHeight;
+      if (!hasVScroll) {
+        this.GenerateC(8);
+      }
       window.onscroll = () => {
         let bottomOfWindow =
           Math.max(
