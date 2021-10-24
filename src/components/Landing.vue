@@ -17,7 +17,8 @@ import Card from "./Card.vue";
     Card,
   },
   mounted() {
-    this.GenerateC();
+    this.GenerateC(8);
+    this.scroll();
   },
   computed: {
     ...mapGetters(["GetAPI"]),
@@ -25,10 +26,26 @@ import Card from "./Card.vue";
   methods: {
     ...mapActions(["generateCard"]),
     //Generate 8 cards from api.
-    async GenerateC() {
-      for (let index = 0; index < 8; index++) {
+    async GenerateC(cards: number): Promise<void> {
+      for (let index = 0; index < cards; index++) {
         this.generateCard(await randomGenerate.generateItem());
       }
+    },
+    //check if is scrolled to the bottom?
+    scroll() {
+      window.onscroll = () => {
+        let bottomOfWindow =
+          Math.max(
+            window.pageYOffset,
+            document.documentElement.scrollTop,
+            document.body.scrollTop
+          ) +
+            window.innerHeight ===
+          document.documentElement.offsetHeight;
+        if (bottomOfWindow) {
+          this.GenerateC(4);
+        }
+      };
     },
   },
 })
@@ -47,11 +64,12 @@ $border: #5f9ea0;
   animation: scrollBtn 2s ease-in-out infinite alternate-reverse;
 }
 .Landing_Container {
+  margin-top: 2em;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 0.25em;
-  grid-row-gap: 0em;
+  grid-column-gap: 2em;
+  grid-row-gap: 2em;
   .ScrollButton {
     font-size: 3rem;
     color: #fff;
