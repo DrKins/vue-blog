@@ -94,7 +94,7 @@ input:-webkit-autofill:active {
   // }
   .clicked {
     background: linear-gradient(to right, #78ffd6, #007991);
-    padding: 1em 0 1em 6.5em;
+    padding: 1em 1em 1em 2.5em;
     border-radius: 0.25em;
     transition: all ease-in 350ms;
     color: #fff;
