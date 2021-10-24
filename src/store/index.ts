@@ -18,11 +18,11 @@ export default createStore<StateInterface>({
     },
     //mutate new like to card
     MutateLike(state, payload) {
-      state.APIData[payload.id].likes = payload.likes;
+      state.APIData[payload.id].likes += 1;
     },
     //mutate new dislike
     MutateDislike(state, payload) {
-      state.APIData[payload.id].dislikes = payload.dislikes;
+      state.APIData[payload.id].dislikes += 1;
     },
   },
   actions: {
