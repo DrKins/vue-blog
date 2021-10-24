@@ -22,6 +22,7 @@ export default class App extends Vue {}
 * {
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 #app {
   font-family: "Nunito", sans-serif;
