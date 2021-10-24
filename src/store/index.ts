@@ -1,26 +1,27 @@
 import { createStore } from "vuex";
+import { StateInterface } from "./interface";
 
-export default createStore({
+//createStore with interface
+export default createStore<StateInterface>({
   state: {
-    APIData: [
-      {
-        id: 0,
-        text: "Sint ipsum nulla enim ipsum est minim dolor eiusmod excepteur consequat velit.",
-        likes: 10,
-        dislikes: 0,
-      },
-      {
-        id: 1,
-        text: "Adipisicing eiusmod consequat adipisicing proident dolor commodo irure ut aliqua dolore.",
-        likes: 12,
-        dislikes: 2,
-      },
-    ],
+    //state where all cards will be stored.
+    APIData: [],
   },
   getters: {
+    //getting all cards to components
     GetAPI: (state) => state.APIData,
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    //mutating via action call new card.
+    MutateNewCard(state, payload) {
+      state.APIData.push(payload);
+    },
+  },
+  actions: {
+    //creating async call for mutation
+    generateCard({ commit }, payload) {
+      commit("MutateNewCard", payload);
+    },
+  },
   modules: {},
 });
