@@ -2,6 +2,7 @@
 import loremipsum from "./getRandomLorem";
 //Item interface
 import { Item } from "@/store/interface";
+import store from "@/store";
 
 const randomGenerate = {
   //async function that will generate random loremipsum string
@@ -26,10 +27,10 @@ const randomGenerate = {
       });
     return {
       //return item object into vuex state.
-      id: 0,
+      id: store.state.APIData.length,
       text: x,
-      likes: 0,
-      dislikes: 0,
+      likes: Math.floor(Math.random() * 50) + 1,
+      dislikes: Math.floor(Math.random() * 50),
     };
   },
 };
