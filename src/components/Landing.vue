@@ -31,7 +31,7 @@ import Card from "./Card.vue";
     scroll() {
       var hasVScroll = document.body.scrollHeight > document.body.clientHeight;
       if (!hasVScroll) {
-        this.GenerateC(8);
+        this.GenerateC(10);
       }
       window.onscroll = () => {
         let bottomOfWindow =
