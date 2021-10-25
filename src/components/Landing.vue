@@ -9,6 +9,7 @@ import { randomGenerate } from "@/scripts/randomGenerate";
 import { Options, Vue } from "vue-class-component";
 import { mapActions, mapGetters } from "vuex";
 import Card from "./Card.vue";
+import { gsap } from "gsap";
 @Options({
   components: {
     Card,
