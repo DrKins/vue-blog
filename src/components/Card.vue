@@ -27,7 +27,6 @@
 import { Options, Vue } from "vue-class-component";
 import { mapMutations, mapGetters } from "vuex";
 import "animate.css";
-import { gsap } from "gsap";
 @Options({
   computed: {
     ...mapGetters(["GetAPI"]),
